@@ -19,6 +19,9 @@ def connect_to_db():
         password = getpass.getpass("Enter your password: ")
         
         encrypted_password = encrypt_password(password)
+
+        # Clear the password from memory after it's been sent to encrypted_password
+        password = None
         
         connection = psycopg2.connect(
             dbname="sql_inv_db",
